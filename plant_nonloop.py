@@ -34,8 +34,6 @@ SKY_FILL = (62, 178, 209)
 INITIAL_LEAF_SIZE = 100
 SUBSEQUENT_LEAF_MULT = 1.2
 MOOD_SCALAR = 10
-# The border between negative and positive mood. The lower, the less engagement needed for positive mood.
-FOLLOWER_ENGAGEMENT_RATIO = 0.08
 MAX_HEALTH = 100
 MIN_HEALTH = 0
 
@@ -60,7 +58,7 @@ PLANT_DATA_PATH = './plant_data.json'
 def get_followers():
     return api.get_user(BOT_ACCOUNT_HANDLE).followers_count
 
-FOLLOWER_GROWTH_RATIO = interactions / get_followers()
+FOLLOWER_ENGAGEMENT_RATIO = interactions / get_followers()
 
 def die():
     set_data("alive", False)
